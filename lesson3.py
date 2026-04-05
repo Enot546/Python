@@ -1,4 +1,4 @@
-from user import User
+from user1 import User
 from card import Card
 
 djo = User("Djo")
