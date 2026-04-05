@@ -1,25 +1,26 @@
 month = int(input("Введите номер месяца (1-12): "))
 
+
 def month_to_season(month):
 
     if 2 < month <= 5:
 
-        return('Весна')
+        return ('Весна')
 
     elif 5 < month < 9:
 
-        return('Лето')
+        return ('Лето')
 
     elif 8 < month < 12:
 
-        return('Осень')
+        return ('Осень')
 
     elif month == 12 or 0 < month < 3:
 
-        return('Зима')
+        return ('Зима')
 
     else:
+        return ('Некорректный номер месяца')
 
-        return('Некорректный номер месяца')
 
 print(month_to_season(month))
