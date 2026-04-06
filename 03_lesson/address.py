@@ -11,3 +11,14 @@ class Address:
         self.street = street
         self.home = home
         self.flat = flat
+
+    def __str__(self):
+        return (f"{self.index}, {self.street}, дом "
+                f"{self.home} - квартира {self.flat}")
+
+    def to_address(self):
+        print(self.to_address)
+
+
+to_address = Address(101000, "Москва", "Невская", 28, 10)
+from_address = Address(354000, "Сочи", "Ленина", 45, 13)
