@@ -17,3 +17,10 @@ class Mailing:
         return (f'Отправление, {self.track}, из, '
                 f'{self.from_address}, в, {self.to_address}, . Стоимость, '
                 f'{self.cost}, рублей.')
+
+
+to_address = Address(101000, "Москва", "Невская", 28, 10)
+from_address = Address(354000, "Сочи", "Ленина", 45, 13)
+
+
+print(to_address)
