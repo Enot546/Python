@@ -20,5 +20,5 @@ class Address:
         print(self.to_address)
 
 
-to_address = Address(101000, "Москва", "Невская", 28, 10)
-from_address = Address(354000, "Сочи", "Ленина", 45, 13)
+to_address = (101000, "Москва", "Невская", 28, 10)
+from_address = (354000, "Сочи", "Ленина", 45, 13)
