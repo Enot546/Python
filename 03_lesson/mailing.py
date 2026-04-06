@@ -22,5 +22,3 @@ class Mailing:
 to_address = Address(101000, "Москва", "Невская", 28, 10)
 from_address = Address(354000, "Сочи", "Ленина", 45, 13)
 
-
-print(to_address)
