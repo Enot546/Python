@@ -27,5 +27,5 @@ class Calculator:
         for num in nums:
             s = s + num
 
-        L = len(self, nums)
+        L = len(nums)
         return self.div(s,  L)
