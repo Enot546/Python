@@ -9,9 +9,8 @@ driver = webdriver.Chrome(
 
 driver.get("http://uitestingplayground.com/dynamicid")
 
-for i in range(3):
-    blue_button = driver.find_element(By.CSS_SELECTOR,
-                                      "button[class='btn btn-primary']")
-    blue_button.click()
+blue_button = driver.find_element(By.CSS_SELECTOR,
+                                  "button[class='btn btn-primary']")
+blue_button.click()
 
 sleep(2)
