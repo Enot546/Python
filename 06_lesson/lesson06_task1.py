@@ -1,4 +1,3 @@
-from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -8,12 +7,17 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install()))
+driver.get("http://uitestingplayground.com/ajax")
 
-driver.get("http://uitestingplayground.com/classattr")
+Button = driver.find_element(By.CSS_SELECTOR, "#ajaxButton")
+Button.click()
 
-wait = WebDriverWait(driver, 10)
-button = wait.until(EC.visibility_of_element_located
-                    ((By.CLASS_NAME, 'btn-primary')))
-button.click()
+wait = WebDriverWait(driver, 40)
+wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".bg-success")))
 
-sleep(2)
+element = driver.find_element(By.CSS_SELECTOR, ".bg-success")
+text = element.get_attribute("textContent")
+
+print(text)
+
+driver.quit
