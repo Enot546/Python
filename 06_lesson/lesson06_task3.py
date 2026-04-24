@@ -8,7 +8,7 @@ driver.get(
     "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
 
 WebDriverWait(driver, 30).until(EC.visibility_of_element_located
-                                ((By.CSS_SELECTOR, "#award")))
+                                ((By.CSS_SELECTOR, "#landscape")))
 
 find = driver.find_element(By.CSS_SELECTOR, "#award")
 f = find.get_attribute("src")

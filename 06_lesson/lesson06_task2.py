@@ -12,8 +12,6 @@ wait = WebDriverWait(driver, 10)
 driver.get("http://uitestingplayground.com/textinput")
 
 Button = driver.find_element(By.CSS_SELECTOR, "#newButtonName")
-Button.click()
-
 Button.send_keys("SkyPro")
 
 button = driver.find_element(By.CSS_SELECTOR, ".btn-primary")
