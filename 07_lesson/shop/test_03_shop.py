@@ -6,7 +6,6 @@ from Page.RegPage import reg
 from Page.MainPage import proverka
 from Page.CartPage import korzina
 from Page.ResultPage import end
-from time import sleep
 
 
 @pytest.fixture()
@@ -25,10 +24,9 @@ def test_shop(driver):
 
     mainpage = proverka(driver)
     mainpage.tovar()
-    sleep(4)
+
     cartpage = korzina(driver)
     cartpage.check()
-    sleep(4)
+
     respage = end(driver)
     respage.result()
-    sleep(4)
