@@ -1,7 +1,11 @@
 [
+  "08_lesson/test_GET.py::test_negative_no_token_get",
   "08_lesson/test_GET.py::test_positive_get",
   "08_lesson/test_POST.py::test_create_project",
+  "08_lesson/test_POST.py::test_negative_create_project",
   "08_lesson/test_POST.py::test_positive_key",
+  "08_lesson/test_PUT.py::test_negative_put",
+  "08_lesson/test_PUT.py::test_negative_put_invalid_role",
   "08_lesson/test_PUT.py::test_positive_put",
   "08_lesson/test_get_key.py::test_key",
   "практика/JSON/test_JSON практика.py::test_parse_array_json1",
