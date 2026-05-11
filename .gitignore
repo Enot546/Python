@@ -1,0 +1,9 @@
+.env
+Praktika
+.pytest_cache
+09_lesson/file.py
+09_lesson/test_delete.py
+09_lesson/test_update.py
+09_lesson/test_insert.py
+.flake8
+__pycache__
