@@ -6,6 +6,7 @@ load_dotenv()
 password = os.getenv('password')
 login = os.getenv('login')
 TOKEN = os.getenv('YOUGILE_API_KEY')
+NoTOKEN = os.getenv('negativtoken')
 
 
 def test_create_project():
@@ -42,7 +43,7 @@ def test_negative_create_project():
     }
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer TOKEN",
+        "Authorization": f"Bearer {NoTOKEN}",
     }
 
     response = requests.post(f"{BASE_URL}/projects", json=payload,
