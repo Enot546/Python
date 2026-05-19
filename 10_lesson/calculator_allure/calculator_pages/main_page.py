@@ -12,7 +12,7 @@ class MainPage:
     _driver: ChromeDriver | FfDriver
     _wait: WebDriverWait
 
-    def __init__(self, driver:  ChromeDriver | FfDriver) -> None:
+    def __init__(self, driver: ChromeDriver | FfDriver) -> None:
         """
             Создание экземпляра класса MainPage
             :param driver(ChromeDriver | FfDriver): веб-драйвер браузера
@@ -31,7 +31,8 @@ class MainPage:
         """
 
         self._driver.get('https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html')
-        self._wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#calculator')))
+        self._wait.until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, '#calculator')))
 
     @allure.step('Установить время ожидания {delaying} секунд')
     def set_delay(self, delaying: int) -> None:
@@ -42,9 +43,11 @@ class MainPage:
             :return: None
         """
 
-        self._wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#delay')))
+        self._wait.until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, '#delay')))
         self._driver.find_element(By.CSS_SELECTOR, '#delay').clear()
-        self._driver.find_element(By.CSS_SELECTOR, '#delay').send_keys(delaying)
+        self._driver.find_element(
+            By.CSS_SELECTOR, '#delay').send_keys(delaying)
 
     @allure.step('Нажать кнопку с цифрой {number}')
     def press_number_button(self, number: int) -> None:
@@ -78,7 +81,7 @@ class MainPage:
 
         self._driver.find_element(By.XPATH, f'//span[contains(@class, "btn btn-outline-warning") and text() = "="]').click()
 
-    @allure.step('Ответ на калькуляторе соответствует переданному значению {result} после {delaying} секунд ожидания') 
+    @allure.step('Ответ на калькуляторе соответствует переданному значению {result} после {delaying} секунд ожидания')
     def get_result_after_delayed(self, delaying: float, result: str) -> bool:
         """
             Сравнение итогового значения на калькуляторе с переданным результатом после ожидания
@@ -88,4 +91,6 @@ class MainPage:
             :return: bool: результат сравнения значений
         """
 
-        return WebDriverWait(self._driver, delaying + 1, 0.1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, 'div.screen'), str(result)))
+        return WebDriverWait(self._driver, delaying + 1, 0.1).until(
+            EC.text_to_be_present_in_element(
+                (By.CSS_SELECTOR, 'div.screen'), str(result)))

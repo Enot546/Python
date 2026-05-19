@@ -3,7 +3,6 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
 from shop_allure.shop_pages.auth_page import AuthPage
 from shop_allure.shop_pages.inventory_page import InventoryPage
 from shop_allure.shop_pages.cart_page import CartPage
@@ -29,8 +28,7 @@ class TestShop:
             'Matv',
             '606060',
             '$58.29'
-            )
-        ])
+        )])
     def test_purchase(
         self,
         user_name: str,
@@ -42,7 +40,8 @@ class TestShop:
         total: str
     ):
         with allure.step('Создать экземпляр веб-драйвера браузера Chrome'):
-            driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+            driver = webdriver.Chrome(service=ChromeService(
+                ChromeDriverManager().install()))
 
         auth_page = AuthPage(driver)
         auth_page.open()
@@ -68,7 +67,7 @@ class TestShop:
 
         checkout_two_page = CheckOutTwoStep(driver)
 
-        with allure.step('Проверка: итоговая сумма заказа на странице информации о заказе отображается верно'): 
+        with allure.step('Проверка: итоговая сумма заказа на странице информации о заказе отображается верно'):
             assert total in checkout_two_page.get_summary_total()
 
         driver.quit()

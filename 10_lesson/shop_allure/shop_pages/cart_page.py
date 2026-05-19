@@ -8,9 +8,10 @@ from selenium.webdriver.support import expected_conditions as EC
 class CartPage:
     _driver: ChromeDriver | FfDriver
 
-    def __init__(self, driver:  ChromeDriver | FfDriver) -> None:
+    def __init__(self, driver: ChromeDriver | FfDriver) -> None:
         self._driver = driver
 
     def press_checkout(self) -> None:
-        WebDriverWait(self._driver, 4).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.cart_footer')))
+        WebDriverWait(self._driver, 4).until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, 'div.cart_footer')))
         self._driver.find_element(By.CSS_SELECTOR, '#checkout').click()

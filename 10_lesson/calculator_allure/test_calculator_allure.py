@@ -3,9 +3,6 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from calculator_allure.calculator_pages.main_page import MainPage
 
 
@@ -19,10 +16,13 @@ class TestCalculator:
     @allure.title('Сравнение ответа калькулятора с результом после ожидания')
     @allure.description('Установить время ождания ответа от калькулятора. После ождания сравнить ответ калькулятора с результом.')
     @allure.feature('CHECK AFTER DELAY')
-    @pytest.mark.parametrize('delaying, num_1, operator, num_2, result', [(45, 7, '+', 8, 15)])
-    def test_calc_two_nums(self, delaying: int, num_1: int, operator: str, num_2: int, result: int):
+    @pytest.mark.parametrize('delaying, num_1, operator, num_2, result', [
+        (45, 7, '+', 8, 15)])
+    def test_calc_two_nums(self, delaying: int, num_1: int, operator: str,
+                           num_2: int, result: int):
         with allure.step('Создать экземпляр веб-драйвера браузера Chrome'):
-            driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+            driver = webdriver.Chrome(service=ChromeService(
+                ChromeDriverManager().install()))
 
         main_page = MainPage(driver)
         main_page.open()
@@ -33,6 +33,7 @@ class TestCalculator:
         main_page.press_equal_button()
 
         with allure.step('Проверка:'):
-            assert main_page.get_result_after_delayed(float(delaying), str(result))
+            assert main_page.get_result_after_delayed(float(
+                delaying), str(result))
 
         driver.quit()
